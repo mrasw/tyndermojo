@@ -36,6 +36,8 @@ class AuthController extends Controller
 
             if (Auth::attempt($request->only('no_hp', 'password'))) {
                 return redirect()->intended();
+            } else {
+                return redirect()->to(route('auth.index'));
             }
         } catch (\Throwable $th) {
             // throw $th;
